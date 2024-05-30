@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body style="background-color: black; color: aliceblue;">
+   <ul class="languages">
+    <li>JavaScript</li>
+   </ul>
+</body>
+<script>
+   const addLanguage=function(langName){
+    const li=document.createElement('li')
+    li.innerHTML=`${langName}`;
+    document.querySelector('.languages').appendChild(li)
+   }
+   const addoptiLanguage=function(langName){
+    const li=document.createElement('li')
+    li.appendChild(document.createTextNode(langName))
+    document.querySelector('.languages').appendChild(li)
+   }
+  addLanguage("java")
+  addoptiLanguage("reactjs")
+
+  // edit
+  function changeLangWith(langname, num){const nthLang=document.querySelector(`li:nth-child(${num})`)
+ const newli=document.createElement("li")
+ newli.textContent=`${langname}`
+ nthLang.replaceWith(newli)}
+
+ changeLangWith("nodejs",2)
+
+ // remove
+ function deletelang( num){const nthLang=document.querySelector(`li:nth-child(${num})`)
+        nthLang.remove()        
+}
+//deletelang(3)
+  </script>
+</html>
