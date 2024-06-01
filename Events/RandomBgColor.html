@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Start changing color of bachground each second</h1>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+</body>
+<script>
+  // SetInterval kam krta hai multiple times..matlb ye hai ki jitna time set kr doge... utnwe hi interval pe ye kam bar bar hota rhega...
+  // clear interval iss never ending process ko rok skta hai....lekin isko krne ke liye refernce dena pdta hai ussi function ka jis se tumne ye strt kita tha...
+  let start;
+  // const changeHead=function(){
+  //    const head=document.querySelector('h1')
+  //    head.innerHTML="jabhi to react padhoge"
+  // }
+    
+   
+  // document.querySelector('#start').addEventListener('click',function(){
+  //    start= setInterval(changeHead,2000)
+  // })
+  // document.querySelector('#stop').addEventListener('click',function(){
+  //   clearInterval(start)
+  // })
+  
+  const randomColor = function () {
+  const hex = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += hex[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
+ const changeColor=function(){
+  document.body.style.backgroundColor=randomColor();
+ }
+ 
+ document.querySelector('#start').addEventListener('click',function(){
+     start= setInterval(changeColor,100)
+})
+document.querySelector('#stop').addEventListener('click',function(){
+     clearInterval(start)
+   })
+</script>
+  
+
+</html>

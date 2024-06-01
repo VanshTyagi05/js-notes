@@ -1,0 +1,14 @@
+.container {
+
+  display: flex;
+}
+.info{
+  width:50vw;
+ height: 50vh;
+  background-color: rgb(174, 226, 174);
+}
+.photo{
+  width:50vw;
+ height: 50vh;
+  background-color: rgb(222, 118, 118);
+}

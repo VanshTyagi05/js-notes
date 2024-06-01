@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Chai aur Code is best</h1>
+   <button id="stop">Stop</button>
+</body>
+   <script> // setTimeout kam krta hai ek barr....matlb ye hai ki jaise hi event pe add kroge ek bar function call krega...jitna time set kroge utne time bad function call hoga...
+   // clear timeOut se rok skte ho vo event hone se pehle...
+   const sayVansh=function(){
+    console.log("Vansh Tyagi")
+   }
+
+  const changeContext=function(){
+ document.querySelector('h1')
+ .innerHTML="best js series"
+  }
+
+
+  const changehead=setTimeout(changeContext,2000);
+  
+  document.querySelector('#stop').addEventListener('click',function(){
+    clearTimeout(changehead);
+    console.log("STOPPED");
+  })
+   </script>
+
+</html>

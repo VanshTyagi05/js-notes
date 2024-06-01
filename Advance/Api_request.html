@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="api_request.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="info">
+      <h1>Personal Info</h1>
+      <ul>
+        <li id="followers">Followers:</li>
+        <li id="login_id">Login Id</li>
+      </ul>
+      <button class="button">Show Info</button>
+    </div>
+    <div class="photo">
+      <h1>Photo</h1>
+      <img class="image" src="" alt="profile not loaded">
+    </div>
+  </div>
+</body>
+<script>
+  let data;
+  let followers;
+  let id;
+  let imageUrl;
+  const requestUrl = "https://api.github.com/users/VanshTyagi05"
+  const xhr = new XMLHttpRequest;
+
+  xhr.open('GET', requestUrl)
+
+  xhr.onreadystatechange = function () {
+    console.log(xhr.readyState);
+    if (xhr.readyState === 4) {
+      data = JSON.parse(this.response)
+      console.log(typeof data);
+      followers = Number(data.followers);
+      console.log(followers);
+      id = data.login;
+      console.log(id);
+      imageUrl = data.avatar_url;
+      console.log(imageUrl);
+    }
+  }
+  xhr.send();
+  const datashown = document.querySelector('#followers')
+  const datashown1 = document.querySelector('#login_id')
+  const button = document.querySelector('.button')
+  const image = document.querySelector('.image')
+
+  button.addEventListener('click', function () {
+    datashown.innerHTML = `Followers: ${followers}`;
+    datashown1.innerHTML = `Login Id= ${id}`;
+     image.src=`${imageUrl}`
+
+  })
+
+</script>
+
+</html>
